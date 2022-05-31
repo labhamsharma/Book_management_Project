@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Book Requests</h1>
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+
+        <th>Name</th>
+
+        <th>Title</th>
+    
+        <th>Author</th>
+      
+        <th>Status</th>
+      </tr>
+    </thead>
+
+
+  <tbody>
+    <% @book_requests.each do |book_request| %>
+      <tr>
+          <td ><%= book_request.user.email %></td>
+          <td ><%= book_request.user.name %></td>
+          <td><%= book_request.book.title %></td>
+          <td><%= book_request.book.author %></td>
+          <td><%= book_request.status %></td>
+          <% if current_user.admin? %>
+            <td><% BookRequest::statuses.keys.each do |status| %>
+              <%if book_request.status.eql?("approved") %>
+                <%= button_to "approved" %>
+                <%break%>
+                <%elsif book_request.status.eql?("deny") %>
+                <%= button_to "denied" %>
+                <%break%>
+              <%else%>
+                <% unless book_request.status.eql?(status.to_s) %>
+                  <%= button_to status, update_status_book_request_path(book_request ,status: status) , method: :patch %>
+                  <%end%>
+                <%end%>
+              <%end%>
+            </td>
+          <% elsif book_request.status.eql?("pending")%>
+            <td><%= button_to 'Cancel', book_request_path(id: book_request.id), method: :delete %>
+            </td>
+          <% end %> 
+      </tr>
+      
+    <% end %>
+       <%= link_to 'Back', books_path %>
+   
+  </tbody>
+</table>
