@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Book Requests</h1>
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+
+        <th>Name</th>
+
+        <th>Title</th>
+    
+        <th>Author</th>
+      
+        <th>Status</th>
+      </tr>
+    </thead>
+
+
+  <tbody>
+    <% @book_requests.each do |book_request| %>
+      <tr>
+          <td ><%= book_request.user.email %></td>
+          <td ><%= book_request.user.name %></td>
+          <td><%= book_request.book.title %></td>
+          <td><%= book_request.book.author %></td>
+          <td><%= book_request.status %></td>
+      </tr>
+       <%= link_to 'Back', books_path %>
+    
+      
+   
+  </tbody>
+</table>

@@ -29,16 +29,20 @@
   </tbody>
 </table>
 
-
 <% if current_user.admin? %>
-  <%= link_to 'New Book', new_book_path %>  
-  <%= link_to "Book Requests for issuing books", book_requests_path %>
+   <%= link_to "Approved book", approved_book_path %>
+  <%= link_to 'New Book', new_book_path %>  <br> <br>
+  <%= link_to " Requests for issuing books", book_requests_path %> <br> <br>
 <% else %>
   <%= link_to "My Book Request", book_requests_path %>
+  
 <% end %>
 
-<%# if !current_user.admin? %> 
-  <%#= link_to "My Book Request", book_requests_path %>
-<%# end %>
+
+
+
+
+
+
 
 

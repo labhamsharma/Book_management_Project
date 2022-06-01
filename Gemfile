@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'will_paginate', '3.1.8'
-
+gem 'rubocop-rails', require: false
 gem 'bootstrap-will_paginate', '1.0.0' 
 
 # Use Active Storage variant
