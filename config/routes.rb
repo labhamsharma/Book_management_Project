@@ -8,5 +8,4 @@ Rails.application.routes.draw do
     end
   end
    get 'book_request', to: 'book_requests#show'
-   get 'approved_book', to: 'book_requests#approved_book'
 end

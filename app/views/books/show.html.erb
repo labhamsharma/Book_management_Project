@@ -19,3 +19,8 @@
 <%= link_to 'Back', books_path %>
 
 
+<%= button_to 'Book request', book_requests_path(book_request:{ book_id: @book.id, request_date: Date.today}), method: :post %>  
+
+
+
+

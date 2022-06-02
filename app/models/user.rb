@@ -5,8 +5,4 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable 
   validates :name, presence: true
-
-  def requested?(book_id)
-    self.book_requests.find_by(book_id: book_id)
-  end
 end
